@@ -93,56 +93,57 @@ function sampleButtons(number) {
 }
 
 function sampleList(number) {
-  const data = JSON.stringify({
+  const data = {
     messaging_product: "whatsapp",
     to: number,
     type: "interactive",
     interactive: {
       type: "list",
       body: {
-        text: "tego estas opciones",
+        text: "¡Hola! Por favor selecciona una opción:",
       },
       footer: {
-        text: "seleccione una de las opciones",
+        text: "Este es un mensaje de prueba.",
       },
       action: {
         button: "Ver opciones",
         sections: [
           {
-            title: "Comprar y vende productos",
+            title: "Opciones de comida",
             rows: [
               {
-                id: "main-comprar",
-                title: "comprar",
-                description: "Comprar los mejores productos",
+                id: "opcion1",
+                title: "Pizza",
+                description: "Ordena una deliciosa pizza.",
               },
               {
-                id: "main-vender",
-                title: "vender",
-                description: "VEnde tus productos",
+                id: "opcion2",
+                title: "Hamburguesa",
+                description: "Pide una hamburguesa con papas fritas.",
               },
             ],
           },
           {
-            title: "Centro de atencion",
+            title: "Opciones de bebida",
             rows: [
               {
-                id: "main-agencia",
-                title: "agencia",
-                description: "puedes visitar nuestar agencia",
+                id: "opcion3",
+                title: "Refresco",
+                description: "Refresca tu día con una bebida gaseosa.",
               },
               {
-                id: "main-contacto",
-                title: "centro de contacto",
-                description: "te atendera uno de nustros agentes",
+                id: "opcion4",
+                title: "Agua",
+                description: "Mantente hidratado con agua mineral.",
               },
             ],
           },
         ],
       },
     },
-  });
-  return data;
+  };
+
+  return JSON.stringify(data);
 }
 
 function sampleLocation(number) {

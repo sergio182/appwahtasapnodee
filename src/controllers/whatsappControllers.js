@@ -1,7 +1,9 @@
 const fs = require("fs");
 const myConsole = new console.Console(fs.createWriteStream("./logs.txt")); //aqui se guardaran lo que le mandemos de postman conmo json de un mensaje de prueba osea un mensaje
-const whatsappservice = require("../services/whatsappService"); //importamos el servicio
-const samples = require("../shared/sampleMiodels"); //importamos las funcionesd shared para devolvr un contenido
+//const whatsappservice = require("../services/whatsappService"); //importamos el servicio de todas manera ya no se necestita aqui porque lo estamos importando en processMessage pero lo dejare
+//const samples = require("../shared/sampleMiodels"); //importamos las funcionesd shared para devolvr un contenido para usar los ejemplos simples
+
+const processMessage = require("../shared/processMessage"); //importamos
 
 const verifytoken = (req, res) => {
   try {
@@ -32,35 +34,42 @@ const recibeMessage = (req, res) => {
       var number = messages["from"];
       var text = GetTextUser(messages); //creamos la funcion abajo
       //myConsole.log(text); //imprimimos lo que devuelve
-
-      if (text == "text") {
-        var data = samples.sampleText("hola usuario", number);
-        whatsappservice.SendMessageWhatsApp(data);
-      } else if (text == "image") {
-        var data = samples.sampleImage(number);
-        whatsappservice.SendMessageWhatsApp(data);
-      } else if (text == "video") {
-        var data = samples.sampleVideo(number);
-        whatsappservice.SendMessageWhatsApp(data);
-      } else if (text == "audio") {
-        var data = samples.sampleAudio(number);
-        whatsappservice.SendMessageWhatsApp(data);
-      } else if (text == "document") {
-        var data = samples.sampleDocument(number);
-        whatsappservice.SendMessageWhatsApp(data);
-      } else if (text == "button") {
-        var data = samples.sampleButtons(number);
-        whatsappservice.SendMessageWhatsApp(data);
-      } else if (text == "list") {
-        var data = samples.sampleList(number);
-        whatsappservice.SendMessageWhatsApp(data);
-      } else if (text == "location") {
-        var data = samples.sampleLocation(number);
-        whatsappservice.SendMessageWhatsApp(data);
-      } else {
-        var data = samples.sampleText("No entiendo", number);
-        whatsappservice.SendMessageWhatsApp(data);
+      //--------------esto es para ProcessMessage
+      if (text != "") {
+        processMessage.Process(text, number);
       }
+
+      //------------------eso es tapa los samplesModels
+      /* if (text == "text") {
+
+                                                                     /*var data = samples.sampleText("hola usuario", number);
+                                                                                     whatsappservice.SendMessageWhatsApp(data);
+                                                                   }
+                                                                    else if (text == "image") {
+                                                                                       var data = samples.sampleImage(number);
+                                                                                       whatsappservice.SendMessageWhatsApp(data);
+                                                                                     } else if (text == "video") {
+                                                                                       var data = samples.sampleVideo(number);
+                                                                                       whatsappservice.SendMessageWhatsApp(data);
+                                                                                     } else if (text == "audio") {
+                                                                                       var data = samples.sampleAudio(number);
+                                                                                       whatsappservice.SendMessageWhatsApp(data);
+                                                                                     } else if (text == "document") {
+                                                                                       var data = samples.sampleDocument(number);
+                                                                                       whatsappservice.SendMessageWhatsApp(data);
+                                                                                     } else if (text == "button") {
+                                                                                       var data = samples.sampleButtons(number);
+                                                                                       whatsappservice.SendMessageWhatsApp(data);
+                                                                                     } else if (text == "list") {
+                                                                                       var data = samples.sampleList(number);
+                                                                                       whatsappservice.SendMessageWhatsApp(data);
+                                                                                     } else if (text == "location") {
+                                                                                       var data = samples.sampleLocation(number);
+                                                                                       whatsappservice.SendMessageWhatsApp(data);
+                                                                                     } else {
+                                                                                       var data = samples.sampleText("No entiendo", number);
+                                                                                       whatsappservice.SendMessageWhatsApp(data);
+                                                                                     }*/
 
       //whatsappservice.SendMessageWhatsApp("el usuario dijo:" + text, number); //necesitamos el texto y el numero que capturamos
     }

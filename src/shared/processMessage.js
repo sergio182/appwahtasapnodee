@@ -58,7 +58,10 @@ function Process(textUser, number) {
     models.push(model);
   } else {
     //no entiendo
-    var model = whatsappmodel.MessageText("no entiendo lo que dices", number);
+    var model = whatsappmodel.MessageText(
+      "no entiendo lo que dices intentalo mas tarde",
+      number
+    );
     models.push(model);
   }
 

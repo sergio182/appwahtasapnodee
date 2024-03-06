@@ -1,4 +1,11 @@
-gracias crack
-59162551619
-hola dyana
-59162551619
+TypeError: Configuration is not a constructor
+    at Object.GetMessageChatGPT (D:\Curso_Wathsapp_node\appwahtasapnodee\src\services\chatgpt-service.js:5:27)
+    at Object.Process (D:\Curso_Wathsapp_node\appwahtasapnodee\src\shared\processMessage.js:73:48)
+    at recibeMessage (D:\Curso_Wathsapp_node\appwahtasapnodee\src\controllers\whatsappControllers.js:41:38)
+    at Layer.handle [as handle_request] (D:\Curso_Wathsapp_node\appwahtasapnodee\src\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\Curso_Wathsapp_node\appwahtasapnodee\src\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (D:\Curso_Wathsapp_node\appwahtasapnodee\src\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (D:\Curso_Wathsapp_node\appwahtasapnodee\src\node_modules\express\lib\router\layer.js:95:5)
+    at D:\Curso_Wathsapp_node\appwahtasapnodee\src\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (D:\Curso_Wathsapp_node\appwahtasapnodee\src\node_modules\express\lib\router\index.js:346:12)
+    at next (D:\Curso_Wathsapp_node\appwahtasapnodee\src\node_modules\express\lib\router\index.js:280:10)

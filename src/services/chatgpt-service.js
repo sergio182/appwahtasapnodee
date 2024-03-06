@@ -1,9 +1,8 @@
 const { Configuration, OpenAIApi } = require("openai");
-//const OPENAI_API_KEY = "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";
 
 async function GetMessageChatGPT(text) {
     const configuration = new Configuration({
-        apiKey: "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",
+        apiKey: "Your api key",
     });
 
     const openai = new OpenAIApi(configuration);

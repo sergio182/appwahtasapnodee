@@ -7,7 +7,7 @@ const processMessage = require("../shared/processMessage"); //importamos
 
 const verifytoken = (req, res) => {
     try {
-        var accessToken = "RTQCADENA12332"; //creamos un token para configurar en el webhook dela app de varfacebook
+        var accessToken = "token_face"; //creamos un token para configurar en el webhook dela app de varfacebook
         var token = req.query["hub.verify_token"]; //capturamos lo que manda facebook en la documentacion esta asi
         var challenge = req.query["hub.challenge"]; //es para comparar el token que nos envia es el mismo que nosotros tenemos
         if (challenge != null && token != null && accessToken == token) {
